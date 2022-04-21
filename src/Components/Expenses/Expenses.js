@@ -15,6 +15,7 @@ function Expenses({ expenses }) {
       <ExpensesFilter getYear={getYear} year={year} />
       {expenses.map((expense) => (
         <ExpenseItem
+          key={expenses.id}
           title={expense.title}
           date={expense.date}
           amount={expense.amount}

@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 import Expenses from "./Components/Expenses/Expenses";
 import NewExpense from "./Components/NewExpense/NewExpense";
 
 function App() {
   const [expense_array, updateExpense] = useState([]);
   const addNewExpense = (addedExpense) => {
+
     console.log(addedExpense);
     updateExpense((prevExpense) => {
+      addedExpense.id = uuidv4();
 
-      // I want to add latest entered expense at the front of the list 
-      // return [addedExpense , ...prevExpense]; // this is not working
-
-      return [...prevExpense, addedExpense]; // this is adding the lastest entered expense at the end of the list which i do not want
+      return [addedExpense, ...prevExpense];
     });
-
   };
   return (
     <div>
