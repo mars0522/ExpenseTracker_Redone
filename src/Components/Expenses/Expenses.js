@@ -14,17 +14,23 @@ function Expenses({ expenses }) {
     return expense.date.getFullYear().toString() === year;
   });
 
+  let expense_data = <p>No Expense Found !!</p>;
+
+  if (filteredArray.length > 0) {
+    expense_data = filteredArray.map((expense) => (
+      <ExpenseItem
+        key={expenses.id}
+        title={expense.title}
+        date={expense.date}
+        amount={expense.amount}
+      />
+    ));
+  }
+
   return (
     <Card className="expenses">
       <ExpensesFilter getYear={getYear} year={year} />
-      {filteredArray.map((expense) => (
-        <ExpenseItem
-          key={expenses.id}
-          title={expense.title}
-          date={expense.date}
-          amount={expense.amount}
-        />
-      ))}
+      {expense_data}
     </Card>
   );
 }
