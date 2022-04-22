@@ -14,7 +14,7 @@ function ExpensesList({ expenses, filteredArray }) {
       />
     ));
   }
-    return <div>{expense_data}</div>;
+  return <div>{expense_data}</div>;
 }
 
 export default ExpensesList;

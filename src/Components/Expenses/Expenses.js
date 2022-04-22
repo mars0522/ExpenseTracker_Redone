@@ -15,12 +15,10 @@ function Expenses({ expenses }) {
     return expense.date.getFullYear().toString() === year;
   });
 
-  let expense_data = <ExpensesList expenses={expenses} filteredArray={filteredArray} />;
-
   return (
     <Card className="expenses">
       <ExpensesFilter getYear={getYear} year={year} />
-      {expense_data}
+      <ExpensesList expenses={expenses} filteredArray={filteredArray} />
     </Card>
   );
 }
