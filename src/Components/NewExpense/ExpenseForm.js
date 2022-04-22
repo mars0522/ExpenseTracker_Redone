@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
-function ExpenseForm({ getNewExpense }) {
+function ExpenseForm({ getNewExpense, cancelHandler }) {
   const [enteredTitle, setTitle] = useState("");
   const [enteredAmount, setAmount] = useState("");
   const [enteredDate, setDate] = useState("");
+  const [show, setShow] = useState(false);
 
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
@@ -31,6 +32,7 @@ function ExpenseForm({ getNewExpense }) {
     setAmount("");
     setDate("");
   };
+  
 
   return (
     <form onSubmit={formSubmitHandler}>
@@ -68,6 +70,7 @@ function ExpenseForm({ getNewExpense }) {
       </div>
       <div className="new-expense__actions">
         <button type="submit">Add Expense</button>
+        <button type="button" onClick={()=>{cancelHandler()}}>Cancel</button>
       </div>
     </form>
   );
