@@ -18,7 +18,7 @@ function Expenses({ expenses }) {
   return (
     <Card className="expenses">
       <ExpensesFilter getYear={getYear} year={year} />
-      <ExpensesList expenses={expenses} filteredArray={filteredArray} />
+      <ExpensesList  filteredArray={filteredArray} />
     </Card>
   );
 }
