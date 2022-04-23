@@ -31,6 +31,7 @@ function ExpenseForm({ getNewExpense, cancelHandler }) {
     setTitle("");
     setAmount("");
     setDate("");
+    cancelHandler();
   };
   
 
